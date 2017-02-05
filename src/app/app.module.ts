@@ -3,6 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+/* Third Party */
+import { AngularFireModule } from 'angularfire2';
+import { FireBaseConfig } from './config/firebase';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
+
+/* Custom */
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -12,7 +18,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(FireBaseConfig),
+    AsyncLocalStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
