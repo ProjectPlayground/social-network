@@ -1,8 +1,8 @@
-import {Injectable, Inject} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { FirebaseApp, FirebaseRef, AngularFire} from 'angularfire2';
 
 @Injectable()
-export class AuthProvider {
+export class AuthService {
   constructor(public af:AngularFire) {}
   
   getAuth() {

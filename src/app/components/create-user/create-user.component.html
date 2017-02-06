@@ -1,0 +1,26 @@
+<div class="ui raised very padded text container segment">
+  <form class="ui form" autocomplete="off"
+    [formGroup]="createUserForm" >
+    <div class="field">
+      <label>Usernmae</label>
+      <input type="text" name="username" placeholder="Username" 
+        formControlName="username">
+    </div>
+    <div class="field">
+      <label>Name</label>
+      <input type="text" name="name" placeholder="Name" 
+        formControlName="name">
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Email" 
+        formControlName="email">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="password" 
+        formControlName="password">
+    </div>
+    <button class="ui button" (click)="createUser()">Submit</button>
+  </form>
+</div>
