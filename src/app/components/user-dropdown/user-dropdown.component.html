@@ -1,0 +1,16 @@
+<div *ngIf="user" class="ui dropdown item"
+    [class.active]="isHover"
+    [class.visible]=isHover>
+    <div class="text"> Welcome {{ user.name }} </div>
+    <i class="dropdown icon"></i>
+    <div class="menu transition slide down in"
+        [class.hidden]="!isHover"
+        [class.visible]="isHover">
+        <div class="item" (click)="onLogOut()">
+            <div class="ui button fluid negative">Log-out</div>
+        </div>
+        <div class="item">
+            <div class="ui button fluid positive">User Profile</div>
+        </div>
+    </div>
+</div>
