@@ -13,6 +13,9 @@ import { ComponentsModule } from './components';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 
+/* Routes */
+import { routing } from './routes';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +23,8 @@ import { UserService } from './services/user.service';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(FireBaseConfig),
-    ComponentsModule
+    ComponentsModule,
+    routing
   ],
   providers: [
     UserService,
