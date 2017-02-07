@@ -1,0 +1,10 @@
+.ui.header { margin-top: 24px; }
+
+.form {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+a {
+    cursor: pointer;
+}

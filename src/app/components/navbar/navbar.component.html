@@ -8,11 +8,11 @@
     <div *ngIf="!user"class="right menu" >
       <div class="item">
         <div class="ui primary button"
-        routerLink="/register">Sign up</div>
+          (click)="onLinkClicked('/register')">Sign up</div>
       </div>
       <div class="item">
         <div class="ui button"
-        routerLink="/login">Log-in</div>
+        (click)="onLinkClicked('/login')">Log-in</div>
       </div>
     </div>
     <div *ngIf="user" class="right menu">
