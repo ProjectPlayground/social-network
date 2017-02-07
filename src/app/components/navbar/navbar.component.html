@@ -16,6 +16,6 @@
       </div>
     </div>
     <div *ngIf="user" class="right menu">
-      <user-dropdown [user]="user" (logOut)="logOut($event)"></user-dropdown>
+      <user-dropdown [user]="user" (logOut)="onLogOut($event)"></user-dropdown>
     </div>
   </div>

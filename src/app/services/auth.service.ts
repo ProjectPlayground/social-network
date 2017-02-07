@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
-import { FirebaseApp, FirebaseRef, AngularFire} from 'angularfire2';
+import { 
+  FirebaseApp, 
+  FirebaseRef, 
+  AngularFire, 
+  AuthMethods,
+  AuthProviders
+} from 'angularfire2';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +16,12 @@ export class AuthService {
   };
   
   signin(credentails) {   
-    return this.af.auth.login(credentails);
+    return this.af.auth.login(
+      credentails, 
+      {
+       provider: AuthProviders.Password,
+       method: AuthMethods.Password
+      });
   }
   
   createUser(credentails) {
@@ -18,6 +29,6 @@ export class AuthService {
   };
   
   logout() {
-     this.af.auth.logout();
+     return this.af.auth.logout();
   }
 }

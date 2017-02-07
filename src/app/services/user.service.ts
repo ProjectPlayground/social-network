@@ -47,7 +47,8 @@ export class UserService {
         return this.af.database.object(`/users/${uid}`).set(user);
     }
 
-    getUser(uid: string) {
+    getUser(userInfo: FirebaseAuthState) {
+        let uid: string = userInfo.auth.uid;
         return this.af.database.object(`/users/${uid}`);
     }
 

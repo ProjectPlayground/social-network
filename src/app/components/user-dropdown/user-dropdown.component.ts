@@ -15,15 +15,12 @@ export class UserDropDownComponent {
     isHover: boolean;
     @Input() user;
     @Output() logOut = new EventEmitter<boolean>();
-    @HostListener('mouseenter') onHover() {
-        this.isHover = true;
+    @HostListener('click') onHover() {
+        this.isHover = !this.isHover;
     }
     
-    @HostListener('mouseleave') onMouseLeave() {
-        this.isHover = false;
-    }
-
     onLogOut() {
+        this.isHover = false;
         this.logOut.next(true);
     }
 }

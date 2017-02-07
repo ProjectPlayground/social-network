@@ -1,4 +1,7 @@
-<navbar (linkClick)="navClicked($event)"></navbar>
+<navbar 
+    (linkClick)="navClicked($event)"
+    (logOut)="onLogOut()"
+    [user]="user"></navbar>
 <div class="ui container">
     <router-outlet></router-outlet>
 </div>
