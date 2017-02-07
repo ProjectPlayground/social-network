@@ -6,7 +6,8 @@ import { User } from '../../models/user.model';
 
 @Component({
     selector: 'create-user',
-    templateUrl: './create-user.component.html'
+    templateUrl: './create-user.component.html',
+    styleUrls: ['./create-user.component.css']
 })
 
 export class CreateUserComponent {
@@ -25,7 +26,8 @@ export class CreateUserComponent {
     }
     createUser(){
         const user: User = this.createUserForm.value;
-        this.userService.createUser(user);
-        this.createUserForm.reset();
+        this.userService.createUser(user).subscribe( val => {
+            this.createUserForm.reset();
+        });
     }
 }

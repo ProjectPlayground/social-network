@@ -36,16 +36,15 @@ export class UserService {
     }
 
     createUser(user: User) {
-        this.isUserFree(user.username)
+        return this.isUserFree(user.username)
             .filter( value => value === true )
             .switchMap( () => this.authService.createUser({ email: user.email, password: user.password}))
-            .subscribe( userInfo => {
-                let uid: string = userInfo.auth.uid;
-                this.af.database.object(`/users/${uid}`)
-                    .set(user)
-                    .then( value => console.log('successfully'))
-                    .catch( err => console.log(err));
-            });
+            .switchMap( userInfo => this.createUserObject(userInfo, user));
+    }
+
+    createUserObject( userInfo: FirebaseAuthState, user: User ) {
+        let uid: string = userInfo.auth.uid;
+        return this.af.database.object(`/users/${uid}`).set(user);
     }
 
     getUser(uid: string) {
