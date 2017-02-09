@@ -1,0 +1,29 @@
+<div class="ui container">
+    <h2 class="ui header">
+    <i class="circular users icon"></i>
+    <div class="content">
+        People
+        <div class="sub header">Search for people to follow...</div>
+    </div>
+    </h2>
+</div>
+<div class="ui container">
+    <div class="ui fluid category search">
+    <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search users..."
+            #searchInput (keyup)="searchUsers(searchInput.value)">
+        <i class="search icon"></i>
+    </div>
+</div>
+<div class="ui middle aligned divided list">
+  <div class="item" *ngFor="let user of users | async" 
+  [class.hidden]="!user.$key"
+  [class.visible]="user.$key">
+    <div class="right floated content">
+      <div class="ui button" (click)="userProfile(user)">View More</div>
+    </div>
+    <div class="content">
+      {{ user.username }}
+    </div>
+  </div>
+</div>

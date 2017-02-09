@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseAuthState } from 'angularfire2';
+import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -20,11 +20,12 @@ export class UserService {
         };
         // username is given
         if(username) {
-            query['equalTo'] = username;
+            query['startAt'] = username;
         }
-        let users = this.af.database.list('/users', {
+        let users: FirebaseListObservable<User[]>  = this.af.database.list('/users', {
             query: query
         });
+        console.log(query);
         return users;
     }
 

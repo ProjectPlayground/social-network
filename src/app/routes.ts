@@ -3,13 +3,14 @@ import { ModuleWithProviders } from '@angular/core';
 
 import { 
         CreateUserComponent,
-        LoginComponent
+        LoginComponent,
+        PeopleComponent
     } from './components/components';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'register',
+        redirectTo: 'people',
         pathMatch: 'full'
     },
     {
@@ -19,6 +20,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'people',
+        component: PeopleComponent
     }
 ];
 
