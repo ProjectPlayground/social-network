@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
@@ -11,7 +12,7 @@ import { UserService } from '../../services/user.service';
 })
 
 export class UserProfileComponent implements OnInit {
-    @Input()  user: User;
+    @Input()  user: Observable<User>;
 
     constructor(
         private userService: UserService,
@@ -20,8 +21,16 @@ export class UserProfileComponent implements OnInit {
     ){}
 
     ngOnInit() {
-        this.route.params
-            .switchMap( (params: Params) => this.userService.getUserById(params['id']))
-            .subscribe( user => console.log(user));
+        this.user = this.route.params
+            .switchMap( (params: Params) => this.userService.getUserById(params['id']));
+    }
+
+    goBack() {
+        this.location.back();
+    }
+
+    followUser() {
+        let params: Params = this.route.snapshot.params;
+        console.log(params['id']);
     }
 }
