@@ -53,4 +53,8 @@ export class UserService {
         return this.af.database.object(`/users/${uid}`);
     }
 
+    getUserById( uid: string ) {
+        return this.af.database.object(`/users/${uid}`);
+    }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
+import { Router } from '@angular/router';
 // Observable class extensions
 import 'rxjs/add/observable/of';
 // Observable operators
@@ -24,7 +25,8 @@ export class PeopleComponent implements OnInit {
     users: Observable<User[]>;
 
     constructor(
-        private userService: UserService
+        private userService: UserService,
+        private router: Router
     ){
         
     }
@@ -44,5 +46,9 @@ export class PeopleComponent implements OnInit {
 
     userProfile(user: User) {
         console.log(user);
+    }
+
+    goToDetails(uid: string) {
+        this.router.navigate(['/user', uid]);
     }
 }

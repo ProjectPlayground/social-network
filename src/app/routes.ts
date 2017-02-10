@@ -4,7 +4,8 @@ import { ModuleWithProviders } from '@angular/core';
 import { 
         CreateUserComponent,
         LoginComponent,
-        PeopleComponent
+        PeopleComponent,
+        UserProfileComponent
     } from './components/components';
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
     {
         path: 'people',
         component: PeopleComponent
+    },
+    {
+        path: 'user/:id',
+        component: UserProfileComponent
     }
 ];
 

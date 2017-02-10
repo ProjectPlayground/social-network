@@ -20,7 +20,7 @@
   [class.hidden]="!user.$key"
   [class.visible]="user.$key">
     <div class="right floated content">
-      <div class="ui button" (click)="userProfile(user)">View More</div>
+      <a class="ui button" (click)="goToDetails(user.$key)" >View More</a>
     </div>
     <div class="content">
       {{ user.username }}
