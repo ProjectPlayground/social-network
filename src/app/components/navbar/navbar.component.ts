@@ -8,11 +8,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class NavbarComponent {
     @Output() linkClick;
     @Output() logOut;
+    @Output() userProfile;
     @Input() user;
 
     constructor() {
         this.linkClick = new EventEmitter<string>();
         this.logOut = new EventEmitter<boolean>();
+        this.userProfile = new EventEmitter<boolean>();
     }
 
     onLinkClicked(route: string) {
@@ -22,5 +24,11 @@ export class NavbarComponent {
     onLogOut() {
         this.logOut.emit(true);
     }
+
+    onUserProfile() {
+        this.userProfile.emit(true);
+    }
+
+
 
 }

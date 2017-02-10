@@ -15,6 +15,7 @@ export class UserDropDownComponent {
     isHover: boolean;
     @Input() user;
     @Output() logOut = new EventEmitter<boolean>();
+    @Output() userProfile = new EventEmitter<boolean>();
     @HostListener('click') onHover() {
         this.isHover = !this.isHover;
     }
@@ -22,5 +23,10 @@ export class UserDropDownComponent {
     onLogOut() {
         this.isHover = false;
         this.logOut.next(true);
+    }
+
+    onUserProfile() {
+        this.isHover = false;
+        this.userProfile.next(true);
     }
 }

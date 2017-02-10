@@ -5,6 +5,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { PeopleComponent } from './people/people.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AccountComponent } from './account/account.component';
 
 export const COMPONENTS: Component[] = [
     CreateUserComponent,
@@ -12,7 +13,8 @@ export const COMPONENTS: Component[] = [
     NavbarComponent,
     LoginComponent,
     PeopleComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AccountComponent
 ];
 
 export * from './create-user/create-user.component'; 
@@ -21,3 +23,4 @@ export * from './navbar/navbar.component';
 export * from './login/login.component';
 export * from './people/people.component';
 export * from './user-profile/user-profile.component';
+export * from './account/account.component';

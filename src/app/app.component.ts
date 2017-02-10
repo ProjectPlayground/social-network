@@ -36,4 +36,8 @@ export class AppComponent {
     });
   }
 
+  onUserProfile() {
+    this.router.navigate(['/account']);
+  }
+
 }

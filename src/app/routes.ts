@@ -5,7 +5,8 @@ import {
         CreateUserComponent,
         LoginComponent,
         PeopleComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        AccountComponent
     } from './components/components';
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
     {
         path: 'user/:id',
         component: UserProfileComponent
+    },
+    {
+        path: 'account',
+        component: AccountComponent
     }
 ];
 
