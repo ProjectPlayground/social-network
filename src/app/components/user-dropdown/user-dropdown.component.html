@@ -1,7 +1,11 @@
 <div *ngIf="user" class="ui dropdown item"
     [class.active]="isHover"
     [class.visible]=isHover>
-    <div class="text"> Welcome {{ user.name }} </div>
+    <div class="text"> 
+        <img *ngIf="user?.avatar"
+            src="{{user.avatar}}" class="ui circular image">
+        Welcome {{ user.name }} 
+    </div>
     <i class="dropdown icon"></i>
     <div class="menu transition slide down in"
         [class.hidden]="!isHover"

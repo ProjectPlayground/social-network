@@ -1,8 +1,10 @@
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui image header">
+      <img *ngIf="user?.avatar" 
+        src="{{user.avatar}}" class="ui circular image">
       <div class="content">
-        Creat an Account
+        User Profile
       </div>
     </h2>
   </div>
