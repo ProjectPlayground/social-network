@@ -56,5 +56,23 @@ export class UserService {
     getUserById( uid: string ) {
         return this.af.database.object(`/users/${uid}`);
     }
+    
+    updateProfile(user: User) {
+        return this.authService.getAuth()
+            .switchMap( () => this.updateRef(user));
+        
+    }
+    
+    updateRef(user: User) {
+        let userRef= this.af.database.object(`/users/${user.$key}`).update({
+            name: user.name,
+            username: user.username,
+            email: user.email,
+            about: user.about
+        });
+        
+        return userRef;
+    }
+    
 
 }

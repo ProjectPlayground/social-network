@@ -1,4 +1,34 @@
-<h2>hello</h2>
-<p>{{ ( user | async )?.username }}</p>
-<input type="file" #imageInput>
-<button (click)="uploadImage()">Upload image</button>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui image header">
+      <div class="content">
+        Creat an Account
+      </div>
+    </h2>
+  </div>
+</div>
+<div class="ui middle aligned grid">
+  <div class="column" *ngIf="user">
+    <div class="ui form" autocomplete="off">
+      <div class="ui stacked secondary very padded segment">
+        <div class="field">
+          <label>Username</label>
+          <input type="text" name="username" [(ngModel)]="user.username">
+        </div>
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="name" [(ngModel)]="user.name">
+        </div>
+        <div class="field">
+          <label>About</label>
+          <input type="text" name="about" [(ngModel)]="user.about">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" [(ngModel)]="user.email">
+        </div>
+        <button class="ui button primary" (click)="updateProfile()">Update Profile</button>
+      </div>
+    </div>
+  </div>
+</div>

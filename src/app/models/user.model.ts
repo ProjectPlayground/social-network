@@ -3,6 +3,7 @@ export class User {
     email: string;
     name: string;
     username: string;
+    about: string;
     avatar: string;
     feed?:string[];
     password?: string;

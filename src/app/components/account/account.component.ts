@@ -4,21 +4,25 @@ import 'rxjs/add/operator/switchMap';
 
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user.model';
+
 @Component({
-    templateUrl: './account.component.html'
+    templateUrl: './account.component.html',
+    styleUrls: ['./account.component.css']
 })
 
 export class AccountComponent implements OnInit{
     @ViewChild('imageInput') imageInput: ElementRef;
-    user;
+    user: User;
     constructor(
         private userService: UserService,
         private authService: AuthService
     ){}
 
     ngOnInit() {
-        this.user = this.authService.getAuth()
-            .switchMap(userInfo => this.userService.getUser(userInfo));
+        this.authService.getAuth()
+            .switchMap(userInfo => this.userService.getUser(userInfo))
+            .subscribe( user => this.user = user );
     }
 
     uploadImage() {
@@ -29,8 +33,10 @@ export class AccountComponent implements OnInit{
         let uploadTask = pictureRef.put(image).then( (snapshot) => {
             console.log('file uploaded');
         });
-
-
-        
+    }
+    
+    updateProfile() {
+        this.userService.updateProfile(this.user)
+            .subscribe(() => console.log('updated'));
     }
 }
