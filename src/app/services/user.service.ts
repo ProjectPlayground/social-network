@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseAuthState, FirebaseListObservable } from 'angularfire2';
+import * as firebase from 'firebase';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -57,21 +58,32 @@ export class UserService {
         return this.af.database.object(`/users/${uid}`);
     }
     
-    updateProfile(user: User) {
+    updateProfile(user: User, avatar?: string) {
         return this.authService.getAuth()
-            .switchMap( () => this.updateRef(user));
+            .switchMap( () => this.updateRef(user, avatar));
         
     }
     
-    updateRef(user: User) {
-        let userRef= this.af.database.object(`/users/${user.$key}`).update({
+    updateRef(user: User, avatar?:string) {
+        let newUser: any = {
+            email: user.email,
             name: user.name,
             username: user.username,
-            email: user.email,
             about: user.about
-        });
+        };
+        
+        if(avatar) {
+            newUser.avatar = avatar;
+        }
+        
+        let userRef= this.af.database.object(`/users/${user.$key}`).update(newUser);
         
         return userRef;
+    }
+    
+    uploadImage(image: File, userInfo) {
+        let filename = userInfo.auth.uid + '.jpg';
+        return firebase.storage().ref(`/profile/${filename}`).put(image);
     }
     
 

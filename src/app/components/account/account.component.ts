@@ -25,18 +25,18 @@ export class AccountComponent implements OnInit{
             .subscribe( user => this.user = user );
     }
 
-    uploadImage() {
+    uploadPicture() {
         let image = this.imageInput.nativeElement.files[0];
-        let fileName = image.name;
-
-        let pictureRef = firebase.storage().ref(`/profile/${fileName}`);
-        let uploadTask = pictureRef.put(image).then( (snapshot) => {
-            console.log('file uploaded');
-        });
+        
+        this.authService.getAuth()
+            .switchMap(userInfo => this.userService.uploadImage(image, userInfo))
+            .switchMap(imgRef => this.userService.updateProfile(this.user, imgRef.downloadURL))
+            .subscribe(() => console.log('user updated'));
+            
     }
     
     updateProfile() {
         this.userService.updateProfile(this.user)
-            .subscribe(() => console.log('updated'));
+            .subscribe(() => console.log('user updated'));
     }
 }

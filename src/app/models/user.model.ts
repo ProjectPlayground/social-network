@@ -4,7 +4,7 @@ export class User {
     name: string;
     username: string;
     about: string;
-    avatar: string;
+    avatar?: string;
     feed?:string[];
     password?: string;
     followers?: string[];
