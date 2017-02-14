@@ -6,14 +6,19 @@ import {
         LoginComponent,
         PeopleComponent,
         UserProfileComponent,
-        AccountComponent
+        AccountComponent,
+        PostComponent
     } from './components/components';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'people',
+        redirectTo: 'post',
         pathMatch: 'full'
+    },
+    {
+        path: 'post',
+        component: PostComponent
     },
     {
         path: 'register',

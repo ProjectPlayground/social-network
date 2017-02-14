@@ -12,6 +12,7 @@ import { ComponentsModule } from './components';
 /* Services */
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { SocialService } from './services/social.service';
 
 /* Routes */
 import { routing } from './routes';
@@ -28,7 +29,8 @@ import { routing } from './routes';
   ],
   providers: [
     UserService,
-    AuthService
+    AuthService,
+    SocialService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,23 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui image header">
+      <div class="content">
+        Write a Post
+      </div>
+    </h2>
+  </div>
+</div>
+<div class="ui middle aligned grid">
+  <div class="column">
+    <form class="ui form" autocomplete="off"
+      [formGroup]="createPostForm">
+      <div class="ui stacked secondary very padded segment">
+        <div class="field">
+          <textarea rows="5" max-length="140" placeholder="Enter your Post"
+            formControlName="post"></textarea>
+        </div>
+        <button class="ui button primary" (click)="createPost()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
