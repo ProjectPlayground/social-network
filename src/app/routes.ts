@@ -7,18 +7,19 @@ import {
         PeopleComponent,
         UserProfileComponent,
         AccountComponent,
-        PostComponent
+        PostFormComponent,
+        TimelineComponent
     } from './components/components';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: 'post',
+        redirectTo: 'timeline',
         pathMatch: 'full'
     },
     {
         path: 'post',
-        component: PostComponent
+        component: PostFormComponent
     },
     {
         path: 'register',
@@ -39,6 +40,10 @@ const routes: Routes = [
     {
         path: 'account',
         component: AccountComponent
+    },
+    {
+        path:'timeline',
+        component: TimelineComponent
     }
 ];
 

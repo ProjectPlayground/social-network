@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CreateUserComponent } from './create-user/create-user.component'; 
 import { UserDropDownComponent } from './user-dropdown/user-dropdown.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { PeopleComponent } from './people/people.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AccountComponent } from './account/account.component';
-import { PostComponent } from './post/post.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 export const COMPONENTS: Component[] = [
     CreateUserComponent,
@@ -15,7 +15,8 @@ export const COMPONENTS: Component[] = [
     PeopleComponent,
     UserProfileComponent,
     AccountComponent,
-    PostComponent
+    PostFormComponent,
+    TimelineComponent
 ];
 
 export * from './create-user/create-user.component'; 
@@ -24,4 +25,5 @@ export * from './login/login.component';
 export * from './people/people.component';
 export * from './user-profile/user-profile.component';
 export * from './account/account.component';
-export * from './post/post.component';
+export * from './post-form/post-form.component';
+export * from './timeline/timeline.component';
