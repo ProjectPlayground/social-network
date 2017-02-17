@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 import { SocialService } from '../../services/social.service';
 
@@ -24,20 +26,20 @@ export class PostComponent {
         
     createPost() {
         let image = this.image.nativeElement.files;
-        let postData;
+        let thisKey;
         
         this.socialService.sendPost(this.createPostForm.value)
-            .filter(obj =>  { 
+            .do(key => thisKey = key )
+            .do(() => this.createPostForm.reset())
+            .filter(key =>  { 
                 if(image.length > 0){
-                    postData = obj;
-                    console.log(postData.key);
                     return true;
                 }else{
                     console.log('the post has been created');
                 }
             })
-            .switchMap( postData => this.socialService.postImage(postData.key, image[0]))
-            .switchMap( imgRef => this.socialService.updatePost(postData.key, {image: imgRef.downloadURL}))
+            .switchMap( key => this.socialService.postImage(key, image[0]))
+            .switchMap( imgRef => this.socialService.updatePost( thisKey, {image: imgRef.downloadURL}))
             .subscribe(() => console.log('the post with image has been created'));
     }
     
