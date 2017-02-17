@@ -11,7 +11,6 @@ import { PostComponent } from './post/post.component';
 export const COMPONENTS: Component[] = [
     CreateUserComponent,
     UserDropDownComponent,
-    NavbarComponent,
     LoginComponent,
     PeopleComponent,
     UserProfileComponent,
@@ -21,7 +20,6 @@ export const COMPONENTS: Component[] = [
 
 export * from './create-user/create-user.component'; 
 export * from './user-dropdown/user-dropdown.component';
-export * from './navbar/navbar.component';
 export * from './login/login.component';
 export * from './people/people.component';
 export * from './user-profile/user-profile.component';

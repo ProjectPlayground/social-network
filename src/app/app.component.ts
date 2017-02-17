@@ -26,10 +26,6 @@ export class AppComponent {
         .subscribe( user => this.user = user );
     }
 
-  navClicked(route: string) {
-    this.router.navigate([route]);
-  }
-
   onLogOut(){
     this.auth.logout().then(() => {
       this.user = null;
